@@ -2,12 +2,15 @@
   "name": "tika-text-extract",
   "version": "1.0.0",
   "description": "Extract text from a document by Apache Tika",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "build": "babel src --out-dir lib --ignore test.js,__mocks__",
+    "build": "babel index.js src --out-dir lib --ignore test.js,__mocks__",
     "coverage": "jest --coverage",
+    "lint": "eslint . --fix --format=node_modules/eslint-formatter-pretty",
+    "predeploy": "npm run build",
     "test": "jest"
   },
+  "repository": "vladgolubev/tika-text-extract",
   "author": "Vlad Holubiev",
   "license": "MIT",
   "devDependencies": {
