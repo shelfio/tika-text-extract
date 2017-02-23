@@ -16,6 +16,7 @@ module.exports = wallaby => {
       runner: 'node'
     },
     compilers: {
+      'index*.js': wallaby.compilers.babel(),
       'src/**/*.js': wallaby.compilers.babel()
     },
     setup(wallaby) {
