@@ -1,7 +1,7 @@
 import {startServer} from './server';
 import {extract} from './text';
 
-export default {
+module.exports = {
   extract,
   startServer
 };
