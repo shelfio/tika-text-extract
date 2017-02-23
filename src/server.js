@@ -11,12 +11,17 @@ export function startServer(artifactPath) {
 
   const startCommand = `java -Duser.home=/tmp -jar ${artifactPath}`;
 
-  return new Promise(resolve => {
+  return new Promise((resolve, reject) => {
     exec(startCommand).stderr.on('data', data => {
       const isStarted = data.indexOf('INFO: Started') > -1;
+      const isError = data.match(/java.*Exception/);
 
       if (isStarted) {
         resolve();
+      }
+
+      if (isError) {
+        reject(new Error(data));
       }
     });
   });
