@@ -1,0 +1,15 @@
+{
+  "name": "tika-text-extract",
+  "version": "1.0.0",
+  "description": "Extract text from a document by Apache Tika",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Vlad Holubiev",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^3.16.1",
+    "jest": "^19.0.2"
+  }
+}
