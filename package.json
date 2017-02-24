@@ -4,7 +4,7 @@
   "description": "Extract text from a document by Apache Tika",
   "main": "lib/index.js",
   "scripts": {
-    "build": "babel src --out-dir lib --ignore test.js,__mocks__",
+    "build": "babel src --out-dir lib --ignore test.js",
     "coverage": "jest --coverage",
     "lint": "eslint . --fix --format=node_modules/eslint-formatter-pretty",
     "predeploy": "npm run build",
@@ -21,8 +21,6 @@
   "devDependencies": {
     "babel-cli": "^6.23.0",
     "babel-jest": "^19.0.0",
-    "babel-plugin-transform-async-to-generator": "^6.22.0",
-    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.1.8",
     "eslint": "^3.16.1",
     "eslint-config-google": "0.6.0",

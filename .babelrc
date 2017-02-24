@@ -1,16 +1,5 @@
 {
-  "plugins": [
-    "transform-async-to-generator",
-    [
-      "transform-runtime",
-      {
-        "helpers": false,
-        "polyfill": false,
-        "regenerator": true,
-        "moduleName": "babel-runtime"
-      }
-    ]
-  ],
+  "plugins": [],
   "presets": [
     [
       "env",
