@@ -3,6 +3,7 @@ import {exec} from 'child_process';
 /**
  * Starts a Tika Server on a default localhost:9998
  * @param {String} artifactPath Full path to .jar file of Tika Server
+ * @return {Promise.<void>} Resolves when server is started
  */
 export function startServer(artifactPath) {
   if (!artifactPath) {

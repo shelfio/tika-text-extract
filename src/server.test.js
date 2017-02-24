@@ -36,6 +36,7 @@ it('should reject if some Java exception occurs', async() => {
   try {
     await startServer('/tmp/tika.jar');
   } catch (error) {
-    expect(error.message).toBe('java.net.BindException: Address already in use');
+    expect(error.message)
+      .toBe('java.net.BindException: Address already in use');
   }
 });
