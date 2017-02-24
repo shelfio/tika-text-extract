@@ -10,6 +10,9 @@
     "predeploy": "npm run build",
     "test": "jest"
   },
+  "engines": {
+    "node": ">4"
+  },
   "repository": "vladgolubev/tika-text-extract",
   "author": "Vlad Holubiev",
   "license": "MIT",
