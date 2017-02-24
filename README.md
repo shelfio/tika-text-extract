@@ -11,6 +11,12 @@ and return a string of extracted text.
 
 Requires `java` to be present on the system.
 
+## Install
+
+```bash
+npm i tika-text-extract -S
+```
+
 ## Usage
 
 ```javascript
