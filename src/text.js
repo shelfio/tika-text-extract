@@ -1,5 +1,6 @@
-import {put} from 'axios';
+import got from 'got';
 import intoStream from 'into-stream';
+import getStream from 'get-stream';
 
 const URL = 'http://localhost:9998/tika';
 
@@ -10,11 +11,9 @@ const URL = 'http://localhost:9998/tika';
  */
 export function extract(input = '') {
   const fileStream = intoStream(input);
-  const requestParams = {
-    data: fileStream,
-    headers: {Accept: 'text/plain'},
-    maxContentLength: 100 * 1024 * 1024,
-  };
+  const tikaStream = got.stream.put(URL, {
+    headers: {Accept: 'text/plain'}
+  });
 
-  return put(URL, requestParams).then(response => response.data);
+  return getStream(fileStream.pipe(tikaStream));
 }

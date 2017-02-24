@@ -1,8 +1,12 @@
 import {extract} from './text';
+import intoStream from 'into-stream';
+import MemoryStream from 'memorystream';
 
-jest.mock('axios');
-import axios from 'axios';
-axios.put = jest.fn(() => Promise.resolve({data: 'extracted text'}));
+jest.mock('got');
+import got from 'got';
+got.stream = {
+  put: jest.fn(() => intoStream('extracted text').pipe(new MemoryStream()))
+};
 
 it('should expose extract function', () => {
   expect(extract).toBeInstanceOf(Function);
@@ -11,7 +15,7 @@ it('should expose extract function', () => {
 it('should put file stream', async() => {
   await extract();
 
-  expect(axios.put).toBeCalled();
+  expect(got.stream.put).toBeCalled();
 });
 
 it('should return extracted text', async() => {
