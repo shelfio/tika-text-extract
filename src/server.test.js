@@ -40,3 +40,22 @@ it('should reject if some Java exception occurs', async() => {
       .toBe('java.net.BindException: Address already in use');
   }
 });
+
+
+it('should reject if file not found', async() => {
+  childProcess.exec = jest.fn(() => {
+    return {
+      stderr: {
+        on: jest.fn((_, cb) =>
+          cb('Error: Unable to access jarfile'))
+      }
+    };
+  });
+
+  try {
+    await startServer('/tmp/tika.jar');
+  } catch (error) {
+    expect(error.message)
+      .toBe('Error: Unable to access jarfile');
+  }
+});
