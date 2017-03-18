@@ -26,40 +26,19 @@ Requires `java` to be present on the system.
 ## Install
 
 ```bash
-npm i tika-text-extract -S
+$ npm i -S tika-text-extract
 ```
 
 ## Usage
 
 ```javascript
-const tte = require('tika-text-extract');
-const testFile = require('fs').readFileSync('./README.md');
+import {readFileSync} from 'fs';
 
-tte.startServer('/tmp/tika-server-1.14.jar')
-  .then(() => tte.extract(testFile))
-  .then(console.log) // text here
-  .catch(console.log);
-```
-
-If you are going to extract a lot of files, reuse `tte.startServer` Promise.
-So server will be already started.
-
-```javascript
-const waitForServer = tte.startServer('/tmp/tika-server-1.14.jar');
-
-waitForServer.then(tte.extract(testFile));
-waitForServer.then(tte.extract(testFile));
-// ...
-```
-
-If you are using node 7.6+, `async/await` makes it even better:
-
-```javascript
 await tte.startServer('/tmp/tika-server-1.14.jar');
+const testFile = readFileSync('./README.md');
 
 const extractedText = await tte.extract(testFile);
 const extractedText = await tte.extract(testFile);
-// ...
 ```
 
 ## API
