@@ -1,3 +1,10 @@
 .idea/
 coverage/
+examples/
 src/
+
+.babelrc
+.eslintignore
+.eslintrc
+wallaby.config.js
+yarn.lock
