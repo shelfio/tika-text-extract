@@ -12,6 +12,11 @@ it('should expose extract function', () => {
   expect(extract).toBeInstanceOf(Function);
 });
 
+it('should allow passing stream', async() => {
+  const text = await extract(intoStream('-test-stream'));
+  expect(text).toBe('extracted text-test-stream');
+});
+
 it('should put file stream', async() => {
   await extract();
 
