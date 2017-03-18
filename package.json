@@ -1,6 +1,6 @@
 {
   "name": "tika-text-extract",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Extract text from a document by Apache Tika",
   "main": "lib/index.js",
   "scripts": {
