@@ -7,7 +7,7 @@
     "build": "babel src --out-dir lib --ignore test.js",
     "coverage": "jest --coverage",
     "lint": "eslint . --fix --format=node_modules/eslint-formatter-pretty",
-    "predeploy": "npm run build",
+    "prepublish": "npm run build",
     "test": "jest"
   },
   "engines": {
