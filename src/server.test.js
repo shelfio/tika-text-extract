@@ -41,7 +41,6 @@ it('should reject if some Java exception occurs', async() => {
   }
 });
 
-
 it('should reject if file not found', async() => {
   childProcess.exec = jest.fn(() => {
     return {
