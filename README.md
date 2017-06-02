@@ -2,6 +2,8 @@
 
 > Extract text from any document by [Apache Tika](https://tika.apache.org/)
 
+> [![Build Status](https://travis-ci.org/vladgolubev/tika-text-extract.svg?branch=master)](https://travis-ci.org/vladgolubev/tika-text-extract)
+
 ## What?
 
 > The Apache Tika™ toolkit detects and extracts metadata and text from over a thousand
