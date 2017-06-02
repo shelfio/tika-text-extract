@@ -61,3 +61,7 @@ Returns: Promise resolved when server is started. Rejects in case of error.
 Params: `fileInput` - `Buffer`, `String`, `Stream` or `Promise` of file to extract text from.
 
 Returns: Promise resolved with extracted text.
+
+## License
+
+MIT © [Vlad Holubiev](https://github.com/vladgolubev)
