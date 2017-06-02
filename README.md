@@ -31,7 +31,7 @@ Requires `java` to be present on the system.
 ## Install
 
 ```bash
-$ npm i -S tika-text-extract
+$ yarn add tika-text-extract
 ```
 
 ## Usage
