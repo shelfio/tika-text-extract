@@ -6,5 +6,6 @@ src/
 .babelrc
 .eslintignore
 .eslintrc
+.travis.yml
 wallaby.config.js
 yarn.lock
