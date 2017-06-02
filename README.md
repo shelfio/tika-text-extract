@@ -16,6 +16,8 @@
 
 ## Why?
 
+This was mainly built for convenince usage in AWS Lambda environment.
+
 If you want to use Tika from node.js you are left with these options:
 * Spawn a CLI - no, extremely inefficient to pay for Java startup time
 * Start HTTP Server
