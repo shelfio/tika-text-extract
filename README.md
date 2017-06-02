@@ -2,7 +2,8 @@
 
 > Extract text from any document by [Apache Tika](https://tika.apache.org/)
 
-> [![Build Status](https://travis-ci.org/vladgolubev/tika-text-extract.svg?branch=master)](https://travis-ci.org/vladgolubev/tika-text-extract)
+[![npm](https://img.shields.io/npm/v/tika-text-extract.svg)](https://www.npmjs.com/package/tika-text-extract)
+[![Build Status](https://travis-ci.org/vladgolubev/tika-text-extract.svg?branch=master)](https://travis-ci.org/vladgolubev/tika-text-extract)
 
 ## What?
 
