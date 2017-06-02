@@ -4,6 +4,7 @@ examples/
 src/
 
 .babelrc
+.DS_Store
 .eslintignore
 .eslintrc
 .travis.yml
