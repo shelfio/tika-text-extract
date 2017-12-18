@@ -11,11 +11,9 @@ it('should throw if artifact path is not provided', () => {
   expect(startServer).toThrow('Please provide path to Tika Server Artifact');
 });
 
-it('should call exec to spawn a Tika Server', async () => {
-  childProcess.exec.mockImplementationOnce(() => {
-    return {
-      stderr: {on: jest.fn((_, cb) => cb('INFO: Started'))}
-    };
+it('should call exec to spawn a Tika Server', async() => {
+  childProcess.exec.mockReturnValueOnce({
+    stderr: {on: jest.fn((_, cb) => cb('INFO: Started'))}
   });
 
   await startServer('/tmp/tika.jar');
@@ -23,14 +21,12 @@ it('should call exec to spawn a Tika Server', async () => {
   expect(childProcess.exec).toBeCalled();
 });
 
-it('should reject if some Java exception occurs', async () => {
-  childProcess.exec.mockImplementationOnce(() => {
-    return {
-      stderr: {
-        on: jest.fn((_, cb) =>
-          cb('java.net.BindException: Address already in use'))
-      }
-    };
+it('should reject if some Java exception occurs', async() => {
+  childProcess.exec.mockReturnValueOnce({
+    stderr: {
+      on: jest.fn((_, cb) =>
+        cb('java.net.BindException: Address already in use'))
+    }
   });
 
   try {
@@ -41,14 +37,12 @@ it('should reject if some Java exception occurs', async () => {
   }
 });
 
-it('should reject if file not found', async () => {
-  childProcess.exec.mockImplementationOnce(() => {
-    return {
-      stderr: {
-        on: jest.fn((_, cb) =>
-          cb('Error: Unable to access jarfile'))
-      }
-    };
+it('should reject if file not found', async() => {
+  childProcess.exec.mockReturnValueOnce({
+    stderr: {
+      on: jest.fn((_, cb) =>
+        cb('Error: Unable to access jarfile'))
+    }
   });
 
   try {
