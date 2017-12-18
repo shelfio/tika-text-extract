@@ -50,6 +50,8 @@ const extractedText = await tte.extract(testFile);
 
 ## API
 
+You can see debug messages by setting env var `DEBUG=tika-text-extract`
+
 ### tte.startServer(artifactPath)
 
 Params: `artifactPath` - path to your `tika-server.jar` file.
