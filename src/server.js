@@ -14,7 +14,9 @@ export function startServer(artifactPath) {
 
   return new Promise((resolve, reject) => {
     exec(startCommand).stderr.on('data', data => {
-      const isStarted = data.indexOf('INFO: Started') > -1;
+      const isTika1_14Started = data.indexOf('INFO: Started') > -1;
+      const isTika1_17Started = data.indexOf('Started Apache Tika server ') > -1;
+      const isStarted = isTika1_14Started || isTika1_17Started;
       const isError = data.match(/java.*Exception|error/i);
 
       if (isStarted) {
