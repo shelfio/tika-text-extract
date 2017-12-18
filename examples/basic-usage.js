@@ -1,4 +1,4 @@
-const tte = require('../');
+const tte = require('../lib');
 const testFile = require('fs').readFileSync('./README.md');
 
 tte.startServer('/tmp/tika-server-1.14.jar')
