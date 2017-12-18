@@ -20,6 +20,7 @@
   "author": "Vlad Holubiev",
   "license": "MIT",
   "dependencies": {
+    "debug": "^3.1.0",
     "get-stream": "^3.0.0",
     "got": "^8.0.1",
     "into-stream": "^3.1.0",
