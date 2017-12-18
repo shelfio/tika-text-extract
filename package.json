@@ -11,7 +11,7 @@
     "coverage": "jest --coverage",
     "lint": "eslint . --fix --format=node_modules/eslint-formatter-pretty",
     "prepublish": "npm run build",
-    "test": "jest"
+    "test": "jest "
   },
   "engines": {
     "node": ">=6"
