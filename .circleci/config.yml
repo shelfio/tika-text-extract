@@ -19,6 +19,8 @@ jobs:
       - save_cache:
           paths:
             - node_modules
+            - ~/.cache/yarn
+            - ~/.yarn-cache
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run: yarn test
