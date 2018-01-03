@@ -2,8 +2,8 @@
 
 > Extract text from any document by [Apache Tika](https://tika.apache.org/)
 
+[![CircleCI](https://img.shields.io/circleci/project/github/vladgolubev/tika-text-extract.svg)](https://circleci.com/gh/vladgolubev/tika-text-extract)
 [![npm](https://img.shields.io/npm/v/tika-text-extract.svg)](https://www.npmjs.com/package/tika-text-extract)
-[![Build Status](https://travis-ci.org/vladgolubev/tika-text-extract.svg?branch=master)](https://travis-ci.org/vladgolubev/tika-text-extract)
 [![David](https://img.shields.io/david/vladgolubev/tika-text-extract.svg)](https://david-dm.org/vladgolubev/tika-text-extract)
 [![npm](https://img.shields.io/npm/dm/tika-text-extract.svg)](https://github.com/vladgolubev/tika-text-extract)
 
