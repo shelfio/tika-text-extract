@@ -12,7 +12,7 @@ export function startServer(artifactPath) {
     throw new Error('Please provide path to Tika Server Artifact');
   }
 
-  const startCommand = `java -Duser.home=/tmp -jar ${artifactPath}`;
+  const startCommand = `java --add-modules=java.xml.bind,java.activation -Duser.home=/tmp -jar ${artifactPath}`;
 
   return new Promise((resolve, reject) => {
     exec(startCommand).stderr.on('data', data => {
