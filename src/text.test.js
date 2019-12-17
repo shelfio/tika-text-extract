@@ -7,10 +7,6 @@ import got from 'got';
 
 got.stream.put.mockImplementation(() => intoStream('extracted text').pipe(new MemoryStream()));
 
-it('should expose extract function', () => {
-  expect(extract).toBeInstanceOf(Function);
-});
-
 it('should allow passing stream', async () => {
   const text = await extract(intoStream('-test-stream'));
   expect(text).toBe('extracted text-test-stream');
