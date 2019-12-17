@@ -48,6 +48,16 @@ const extractedText = await tte.extract(testFile);
 const extractedText = await tte.extract(testFile);
 ```
 
+## Execute Tika with a custom path to Java binary
+
+```javascript
+const options = {executableJavaPath: '/bin/jre/java'};
+
+await tte.startServer('/tmp/tika-server-1.14.jar', options);
+// The next command will be executed:
+// /bin/jre/java --add-modules=java.xml.bind,java.activation -Duser.home=/tmp -jar /tmp/tika-server-1.14.jar
+```
+
 ## API
 
 You can see debug messages by setting env var `DEBUG=tika-text-extract`
