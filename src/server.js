@@ -5,14 +5,15 @@ const debug = require('debug')('tika-text-extract');
 /**
  * Starts a Tika Server on a default localhost:9998
  * @param {String} artifactPath Full path to .jar file of Tika Server
+ * @param {Object} [options] Customize text extraction
  * @return {Promise.<void>} Resolves when server is started
  */
-export function startServer(artifactPath) {
+export function startServer(artifactPath, options) {
   if (!artifactPath) {
     throw new Error('Please provide path to Tika Server Artifact');
   }
 
-  const startCommand = `java --add-modules=java.xml.bind,java.activation -Duser.home=/tmp -jar ${artifactPath}`;
+  const startCommand = `${getExecutableJavaPath(options)} --add-modules=java.xml.bind,java.activation -Duser.home=/tmp -jar ${artifactPath}`;
 
   return new Promise((resolve, reject) => {
     exec(startCommand).stderr.on('data', data => {
@@ -32,4 +33,12 @@ export function startServer(artifactPath) {
       }
     });
   });
+}
+
+function getExecutableJavaPath(options) {
+  if (options && options.executableJavaPath) {
+    return options.executableJavaPath;
+  }
+
+  return 'java';
 }
