@@ -63,11 +63,11 @@ By default the library does not support Java version less than 9.
 In order to use it with Java 8, pass an option to `startServer` function
 
 ```javascript
-const options = {executableJavaPath: '/bin/jre/java'};
+const options = {alignWithJava8: true};
 
 await tte.startServer('/tmp/tika-server-1.14.jar', options);
 // The next command will be executed:
-// /bin/jre/java --add-modules=java.xml.bind,java.activation -Duser.home=/tmp -jar /tmp/tika-server-1.14.jar
+// java  -Duser.home=/tmp -jar /tmp/tika-server-1.14.jar
 ```
 
 ## API
