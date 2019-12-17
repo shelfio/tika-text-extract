@@ -45,10 +45,22 @@ await tte.startServer('/tmp/tika-server-1.14.jar');
 const testFile = readFileSync('./README.md');
 
 const extractedText = await tte.extract(testFile);
-const extractedText = await tte.extract(testFile);
 ```
 
 ## Execute Tika with a custom path to Java binary
+
+```javascript
+const options = {executableJavaPath: '/bin/jre/java'};
+
+await tte.startServer('/tmp/tika-server-1.14.jar', options);
+// The next command will be executed:
+// /bin/jre/java --add-modules=java.xml.bind,java.activation -Duser.home=/tmp -jar /tmp/tika-server-1.14.jar
+```
+
+## Execute Tika with Java version less than 9
+
+By default the library does not support Java version less than 9.
+In order to use it with Java 8, pass an option to `startServer` function
 
 ```javascript
 const options = {executableJavaPath: '/bin/jre/java'};
