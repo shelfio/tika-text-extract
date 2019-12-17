@@ -27,6 +27,16 @@ it('should call exec to spawn a Tika Server with custom java path', async() => {
   expect(childProcess.exec).toBeCalledWith("/bin/jre/java --add-modules=java.xml.bind,java.activation -Duser.home=/tmp -jar /tmp/tika.jar");
 });
 
+it('should call exec to spawn a Tika Server and align with Java 8 version', async() => {
+  childProcess.exec.mockReturnValueOnce({
+    stderr: {on: jest.fn((_, cb) => cb('INFO: Started'))}
+  });
+
+  await startServer('/tmp/tika.jar', {alignWithJava8: true});
+
+  expect(childProcess.exec).toBeCalledWith("java  -Duser.home=/tmp -jar /tmp/tika.jar");
+});
+
 it('should reject if some Java exception occurs', async() => {
   childProcess.exec.mockReturnValueOnce({
     stderr: {

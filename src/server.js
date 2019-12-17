@@ -13,7 +13,7 @@ export function startServer(artifactPath, options) {
     throw new Error('Please provide path to Tika Server Artifact');
   }
 
-  const startCommand = `${getExecutableJavaPath(options)} --add-modules=java.xml.bind,java.activation -Duser.home=/tmp -jar ${artifactPath}`;
+  const startCommand = `${getExecutableJavaPath(options)} ${getOptionsBasedOnJavaVersion(options)} -Duser.home=/tmp -jar ${artifactPath}`;
 
   return new Promise((resolve, reject) => {
     exec(startCommand).stderr.on('data', data => {
@@ -41,4 +41,12 @@ function getExecutableJavaPath(options) {
   }
 
   return 'java';
+}
+
+function getOptionsBasedOnJavaVersion(options) {
+  if (options && options.alignWithJava8) {
+    return '';
+  }
+
+  return '--add-modules=java.xml.bind,java.activation';
 }
