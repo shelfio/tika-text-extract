@@ -1,10 +1,13 @@
-import {exec} from 'child_process';
-import {TextExtractionConfig} from './server.types';
+import { exec } from 'child_process';
+import { TextExtractionConfig } from './server.types';
 
 const debug = require('debug')('tika-text-extract');
 
 /**
  * Starts a Tika Server on a default localhost:9998
+ * @param artifactPath Full path to .jar file of Tika Server
+ * @param options Customize text extraction
+ * @return Resolves when server is started
  */
 export function startServer(artifactPath: string, options?: TextExtractionConfig): Promise<void> {
   if (!artifactPath) {
