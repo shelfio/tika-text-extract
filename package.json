@@ -10,14 +10,18 @@
     "lib/"
   ],
   "scripts": {
-    "build": "babel src --out-dir lib --ignore test.js --extensions '.ts'",
+    "build": "rm -rf lib/ && babel src --out-dir lib --extensions '.ts'",
     "coverage": "jest --coverage",
     "lint": "eslint . --ext .js,.ts,.json --fix",
     "prepublish": "npm run build",
     "test": "jest "
   },
   "babel": {
-    "extends": "@shelf/babel-config/backend"
+    "extends": "@shelf/babel-config/backend",
+    "ignore": [
+      "**/*.test.ts",
+      "**/*.types.ts"
+    ]
   },
   "prettier": "@shelf/prettier-config",
   "jest": {
@@ -33,7 +37,6 @@
   "devDependencies": {
     "@babel/cli": "7.14.3",
     "@babel/core": "7.14.3",
-    "@babel/node": "7.14.2",
     "@babel/preset-env": "7.14.2",
     "@shelf/babel-config": "0.1.2",
     "@shelf/eslint-config": "1.1.0",
