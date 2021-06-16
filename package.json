@@ -10,18 +10,14 @@
     "lib/"
   ],
   "scripts": {
-    "build": "rm -rf lib/ && babel src --out-dir lib --extensions '.ts'",
+    "build": "rm -rf lib/ && babel src --out-dir lib --ignore 'src/*.test.ts','src/*.types.ts'  --extensions '.ts'",
     "coverage": "jest --coverage",
     "lint": "eslint . --ext .js,.ts,.json --fix",
     "prepublish": "npm run build",
     "test": "jest "
   },
   "babel": {
-    "extends": "@shelf/babel-config/backend",
-    "ignore": [
-      "**/*.test.ts",
-      "**/*.types.ts"
-    ]
+    "extends": "@shelf/babel-config/backend"
   },
   "prettier": "@shelf/prettier-config",
   "jest": {
