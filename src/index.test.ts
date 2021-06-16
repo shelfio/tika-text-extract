@@ -1,4 +1,4 @@
-import tte from './index';
+import * as tte from './index';
 
 it('should expose extract and startServer functions', () => {
   expect(tte.extract).toBeInstanceOf(Function);
