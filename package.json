@@ -2,6 +2,9 @@
   "name": "tika-text-extract",
   "version": "2.4.0",
   "description": "Extract text from a document by Apache Tika",
+  "repository": "vladgolubev/tika-text-extract",
+  "license": "MIT",
+  "author": "Vlad Holubiev",
   "main": "lib/index.js",
   "files": [
     "lib/"
@@ -9,16 +12,17 @@
   "scripts": {
     "build": "babel src --out-dir lib --ignore test.js --extensions '.ts'",
     "coverage": "jest --coverage",
-    "lint": "eslint . --fix --format=node_modules/eslint-formatter-pretty",
+    "lint": "eslint . --ext .js,.ts,.json --fix",
     "prepublish": "npm run build",
     "test": "jest "
   },
-  "engines": {
-    "node": ">=6"
+  "babel": {
+    "extends": "@shelf/babel-config/backend"
   },
-  "repository": "vladgolubev/tika-text-extract",
-  "author": "Vlad Holubiev",
-  "license": "MIT",
+  "prettier": "@shelf/prettier-config",
+  "jest": {
+    "testEnvironment": "node"
+  },
   "dependencies": {
     "debug": "^3.1.0",
     "get-stream": "^3.0.0",
@@ -36,18 +40,15 @@
     "@shelf/prettier-config": "1.0.0",
     "@shelf/tsconfig": "^0.0.6",
     "@types/jest": "26.0.23",
-    "eslint": "^4.13.1",
+    "eslint": "7.27.0",
     "eslint-config-google": "0.6.0",
     "eslint-formatter-pretty": "^1.3.0",
     "jest": "27.0.1",
     "memorystream": "^0.3.1",
-    "prettier": "2.3.0"
+    "prettier": "2.3.0",
+    "typescript": "4.2.4"
   },
-  "jest": {
-    "testEnvironment": "node"
-  },
-  "babel": {
-    "extends": "@shelf/babel-config/backend"
-  },
-  "prettier": "@shelf/prettier-config"
+  "engines": {
+    "node": ">=6"
+  }
 }
