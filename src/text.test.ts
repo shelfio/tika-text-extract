@@ -3,7 +3,7 @@ jest.mock('got');
 import intoStream from 'into-stream';
 import MemoryStream from 'memorystream';
 import got from 'got';
-import { extract } from './text';
+import {extract} from './text';
 
 got.stream.put.mockImplementation(() => intoStream('extracted text').pipe(new MemoryStream()));
 

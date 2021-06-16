@@ -1,5 +1,5 @@
-import { exec } from 'child_process';
-import { TextExtractionConfig } from './server.types';
+import {exec} from 'child_process';
+import {TextExtractionConfig} from './server.types';
 
 const debug = require('debug')('tika-text-extract');
 
