@@ -1,0 +1,4 @@
+{
+  "extends": ["github>shelfio/renovate-config"],
+  "labels": ["dependencies"]
+}
