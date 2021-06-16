@@ -1,8 +1,8 @@
 {
-  "name": "tika-text-extract",
+  "name": "@shelf/tika-text-extract",
   "version": "2.4.0",
-  "description": "Extract text from a document by Apache Tika",
-  "repository": "vladgolubev/tika-text-extract",
+  "description": "Extract text from documents with Apache Tika",
+  "repository": "shelfio/tika-text-extract",
   "license": "MIT",
   "author": "Vlad Holubiev",
   "main": "lib/index.js",
@@ -14,7 +14,7 @@
     "coverage": "jest --coverage",
     "lint": "eslint . --ext .js,.ts,.json --fix",
     "prepublish": "npm run build",
-    "test": "jest "
+    "test": "jest"
   },
   "babel": {
     "extends": "@shelf/babel-config/backend"
