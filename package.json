@@ -26,13 +26,13 @@
   "dependencies": {
     "debug": "^3.1.0",
     "get-stream": "^3.0.0",
-    "got": "^8.0.1",
+    "got": "11.8.2",
     "into-stream": "^3.1.0",
     "is-stream": "^1.1.0"
   },
   "devDependencies": {
-    "@babel/cli": "7.14.3",
-    "@babel/core": "7.14.3",
+    "@babel/cli": "7.14.5",
+    "@babel/core": "7.14.6",
     "@shelf/babel-config": "0.1.2",
     "@shelf/eslint-config": "1.1.0",
     "@shelf/prettier-config": "1.0.0",
@@ -41,6 +41,7 @@
     "eslint": "7.27.0",
     "jest": "27.0.1",
     "memorystream": "^0.3.1",
+    "normalize-url": "6.0.1",
     "prettier": "2.3.0",
     "typescript": "4.2.4"
   },
