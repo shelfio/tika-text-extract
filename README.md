@@ -16,7 +16,7 @@
 
 ## Why?
 
-This was mainly built for convenince usage in AWS Lambda environment.
+This was mainly built for convenience usage in AWS Lambda environment.
 
 If you want to use Tika from node.js you are left with these options:
 * Spawn a CLI - no, extremely inefficient to pay for Java startup time
@@ -33,13 +33,14 @@ Requires `java` to be present on the system.
 ## Install
 
 ```bash
-$ yarn add tika-text-extract
+$ yarn add @shelf/tika-text-extract
 ```
 
 ## Usage
 
 ```javascript
 import {readFileSync} from 'fs';
+import tte from '@shelf/tika-text-extract';
 
 await tte.startServer('/tmp/tika-server-1.14.jar');
 const testFile = readFileSync('./README.md');
