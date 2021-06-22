@@ -86,6 +86,15 @@ Params: `fileInput` - `Buffer`, `String`, `Stream` or `Promise` of file to extra
 
 Returns: Promise resolved with extracted text.
 
+## Publish
+
+```sh
+$ git checkout master
+$ yarn version
+$ yarn publish
+$ git push origin master --tags
+```
+
 ## License
 
-MIT © [Vlad Holubiev](https://github.com/vladgolubev)
+MIT © [Shelf](https://shelf.io)
