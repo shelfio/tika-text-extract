@@ -42,7 +42,7 @@ $ yarn add @shelf/tika-text-extract
 import {readFileSync} from 'fs';
 import tte from '@shelf/tika-text-extract';
 
-await tte.startServer('/tmp/tika-server-1.14.jar');
+await tte.startServer('/tmp/tika-server-2.2.1.jar');
 const testFile = readFileSync('./README.md');
 
 const extractedText = await tte.extract(testFile);
@@ -55,7 +55,7 @@ const options = {executableJavaPath: '/bin/jre/java'};
 
 await tte.startServer('/tmp/tika-server-2.2.1.jar', options);
 // The next command will be executed:
-// /bin/jre/java --add-modules=java.xml.bind,java.activation -Duser.home=/tmp -jar /tmp/tika-server-1.14.jar
+// /bin/jre/java --add-modules=java.xml.bind,java.activation -Duser.home=/tmp -jar /tmp/tika-server-2.2.1.jar
 ```
 
 ## Execute Tika with Java version less than 9
@@ -68,7 +68,7 @@ const options = {alignWithJava8: true};
 
 await tte.startServer('/tmp/tika-server-2.2.1.jar', options);
 // The next command will be executed:
-// java  -Duser.home=/tmp -jar /tmp/tika-server-1.14.jar
+// java  -Duser.home=/tmp -jar /tmp/tika-server-2.2.1.jar
 ```
 
 ## API
