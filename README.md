@@ -53,7 +53,7 @@ const extractedText = await tte.extract(testFile);
 ```javascript
 const options = {executableJavaPath: '/bin/jre/java'};
 
-await tte.startServer('/tmp/tika-server-1.14.jar', options);
+await tte.startServer('/tmp/tika-server-2.2.1.jar', options);
 // The next command will be executed:
 // /bin/jre/java --add-modules=java.xml.bind,java.activation -Duser.home=/tmp -jar /tmp/tika-server-1.14.jar
 ```
@@ -66,7 +66,7 @@ In order to use it with Java 8, pass an option to `startServer` function
 ```javascript
 const options = {alignWithJava8: true};
 
-await tte.startServer('/tmp/tika-server-1.14.jar', options);
+await tte.startServer('/tmp/tika-server-2.2.1.jar', options);
 // The next command will be executed:
 // java  -Duser.home=/tmp -jar /tmp/tika-server-1.14.jar
 ```
