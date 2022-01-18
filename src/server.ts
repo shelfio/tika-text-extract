@@ -10,22 +10,33 @@ const debug = require('debug')('tika-text-extract');
  * @return Resolves when server is started
  */
 export function startServer(artifactPath: string, options?: TextExtractionConfig): Promise<void> {
+  console.log('artifactPath', artifactPath);
   if (!artifactPath) {
     throw new Error('Please provide path to Tika Server Artifact');
   }
 
+  console.log('options', options);
+  console.log('getOptionsBasedOnJavaVersion', getOptionsBasedOnJavaVersion(options));
   const startCommand = `${getExecutableJavaPath(options)} ${getOptionsBasedOnJavaVersion(
     options
   )} -Duser.home=/tmp -jar ${artifactPath}`;
+  console.log('startCommand', startCommand);
 
   return new Promise((resolve, reject) => {
     exec(startCommand).stderr.on('data', data => {
       debug(data);
+      console.log('data', data);
 
-      const isTika1_14Started: boolean = data.indexOf('INFO: Started') > -1;
-      const isTika1_17Started: boolean = data.indexOf('Started Apache Tika server ') > -1;
-      const isStarted: boolean = isTika1_14Started || isTika1_17Started;
+      const isTika1_14Started = data.indexOf('INFO: Started') > -1;
+      console.log('isTika1_14Started', isTika1_14Started);
+
+      const isTika1_17Started = data.indexOf('Started Apache Tika server ') > -1;
+      console.log('isTika1_17Started', isTika1_17Started);
+
+      const isStarted = isTika1_14Started || isTika1_17Started;
+      console.log('isStarted', isStarted);
       const isError: boolean = data.match(/java.*Exception|error/i);
+      console.log('isError', isError);
 
       if (isStarted) {
         resolve();
