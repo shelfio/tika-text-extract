@@ -24,7 +24,7 @@ it('should call exec to spawn a Tika Server v1 with custom java path', async () 
 
   await startServer('/tmp/tika.jar', {
     executableJavaPath: '/bin/jre/java',
-    firstVersionOfTika: true,
+    useTikaV1: true,
   });
 
   expect(childProcess.exec).toHaveBeenCalledWith(

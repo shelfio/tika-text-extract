@@ -54,7 +54,7 @@ function getOptionsBasedOnJavaVersion(options: TextExtractionConfig): string {
 }
 
 function checkTikaVersion(artifactPath: string, options?: TextExtractionConfig): string {
-  if (options?.firstVersionOfTika) {
+  if (options?.useTikaV1) {
     return `${getExecutableJavaPath(options)} ${getOptionsBasedOnJavaVersion(
       options
     )} -Duser.home=/tmp -jar ${artifactPath}`;
