@@ -14,7 +14,7 @@ export function startServer(artifactPath: string, options?: TextExtractionConfig
     throw new Error('Please provide path to Tika Server Artifact');
   }
 
-  const startCommand = `${getExecutableJavaPath(options)} -jar ${artifactPath} -noFork`;
+  const startCommand = checkTikaVersion(artifactPath, options);
 
   return new Promise((resolve, reject) => {
     exec(startCommand).stderr.on('data', data => {
@@ -43,4 +43,23 @@ function getExecutableJavaPath(options: TextExtractionConfig): string {
   }
 
   return 'java';
+}
+
+function getOptionsBasedOnJavaVersion(options: TextExtractionConfig): string {
+  if (options && options.alignWithJava8) {
+    return '';
+  }
+
+  return '--add-modules=java.xml.bind,java.activation';
+}
+
+function checkTikaVersion(artifactPath: string, options?: TextExtractionConfig): string {
+  console.log('version', options.firstVersionOfTika);
+  if (options?.firstVersionOfTika) {
+    return `${getExecutableJavaPath(options)} ${getOptionsBasedOnJavaVersion(
+      options
+    )} -Duser.home=/tmp -jar ${artifactPath}`;
+  }
+
+  return `${getExecutableJavaPath(options)} -jar ${artifactPath} -noFork`;
 }

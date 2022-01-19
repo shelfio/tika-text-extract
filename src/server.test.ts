@@ -14,8 +14,20 @@ it('should call exec to spawn a Tika Server', async () => {
 
   await startServer('/tmp/tika.jar');
 
+  expect(childProcess.exec).toHaveBeenCalledWith('java -jar /tmp/tika.jar -noFork');
+});
+
+it('should call exec to spawn a Tika Server v1 with custom java path', async () => {
+  childProcess.exec.mockReturnValueOnce({
+    stderr: {on: jest.fn((_, cb) => cb('INFO: Started'))},
+  });
+
+  const options = {executableJavaPath: '/bin/jre/java', isTikaFirstVersion: true};
+
+  await startServer('/tmp/tika.jar', options);
+
   expect(childProcess.exec).toHaveBeenCalledWith(
-    'java -jar /tmp/tika.jar -noFork'
+    '/bin/jre/java -Duser.home=/tmp -jar /tmp/tika.jar'
   );
 });
 
@@ -26,9 +38,7 @@ it('should call exec to spawn a Tika Server with custom java path', async () => 
 
   await startServer('/tmp/tika.jar', {executableJavaPath: '/bin/jre/java'});
 
-  expect(childProcess.exec).toHaveBeenCalledWith(
-    '/bin/jre/java -jar /tmp/tika.jar -noFork'
-  );
+  expect(childProcess.exec).toHaveBeenCalledWith('/bin/jre/java -jar /tmp/tika.jar -noFork');
 });
 
 it('should call exec to spawn a Tika Server and align with Java 8 version', async () => {
