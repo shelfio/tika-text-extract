@@ -89,6 +89,10 @@ await tte.startServer('/tmp/tika-server-1.25.jar', options);
 // /bin/jre/java --add-modules=java.xml.bind,java.activation -Duser.home=/tmp -jar /tmp/tika-server-1.25.jar
 ```
 
+### Note
+
+If you don't use this option with apache-tika less than 2. You will get an error
+
 ## API
 
 You can see debug messages by setting env var `DEBUG=tika-text-extract`
