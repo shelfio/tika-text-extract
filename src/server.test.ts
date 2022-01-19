@@ -38,7 +38,7 @@ it('should call exec to spawn a Tika Server and align with Java 8 version', asyn
 
   await startServer('/tmp/tika.jar', {alignWithJava8: true});
 
-  expect(childProcess.exec).toHaveBeenCalledWith('java  -Duser.home=/tmp -jar /tmp/tika.jar -noFork');
+  expect(childProcess.exec).toHaveBeenCalledWith('java -jar /tmp/tika.jar -noFork');
 });
 
 it('should reject if some Java exception occurs', async () => {
