@@ -22,12 +22,13 @@ it('should call exec to spawn a Tika Server v1 with custom java path', async () 
     stderr: {on: jest.fn((_, cb) => cb('INFO: Started'))},
   });
 
-  const options = {executableJavaPath: '/bin/jre/java', isTikaFirstVersion: true};
-
-  await startServer('/tmp/tika.jar', options);
+  await startServer('/tmp/tika.jar', {
+    executableJavaPath: '/bin/jre/java',
+    firstVersionOfTika: true,
+  });
 
   expect(childProcess.exec).toHaveBeenCalledWith(
-    '/bin/jre/java -Duser.home=/tmp -jar /tmp/tika.jar'
+    '/bin/jre/java --add-modules=java.xml.bind,java.activation -Duser.home=/tmp -jar /tmp/tika.jar'
   );
 });
 
