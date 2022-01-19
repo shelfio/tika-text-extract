@@ -37,13 +37,17 @@ Requires `java` to be present on the system.
 $ yarn add @shelf/tika-text-extract
 ```
 
+### Note
+
+By default in tika-text-extract version 3 use tika-server greater than 2.
+
 ## Usage
 
 ```javascript
 import {readFileSync} from 'fs';
 import tte from '@shelf/tika-text-extract';
 
-await tte.startServer('/tmp/tika-server-1.14.jar');
+await tte.startServer('/tmp/tika-server-standard-2.2.1.jar');
 const testFile = readFileSync('./README.md');
 
 const extractedText = await tte.extract(testFile);
@@ -54,22 +58,35 @@ const extractedText = await tte.extract(testFile);
 ```javascript
 const options = {executableJavaPath: '/bin/jre/java'};
 
-await tte.startServer('/tmp/tika-server-2.2.1.jar', options);
+await tte.startServer('/tmp/tika-server-standard-2.2.1.jar', options);
 // The next command will be executed:
-// /bin/jre/java --add-modules=java.xml.bind,java.activation -Duser.home=/tmp -jar /tmp/tika-server-1.14.jar
+// /bin/jre/java -jar /tmp/tika-server-standard-2.2.1.jar -noFork
 ```
 
 ## Execute Tika with Java version less than 9
 
-By default the library does not support Java version less than 9.
+By default, the library does not support Java versions less than 9.
 In order to use it with Java 8, pass an option to `startServer` function
 
 ```javascript
 const options = {alignWithJava8: true};
 
-await tte.startServer('/tmp/tika-server-2.2.1.jar', options);
+await tte.startServer('/tmp/tika-server-standard-2.2.1.jar', options);
 // The next command will be executed:
-// java  -Duser.home=/tmp -jar /tmp/tika-server-1.14.jar
+// java -jar /tmp/tika-server-standard-2.2.1.jar -noFork
+```
+
+## Execute Tika V1
+
+By default in tika-text-extract version 3 use apache-tika greater than 2.
+To use tika-server less than 2, pass an option to `startServer` function
+
+```javascript
+const options = {useTikaV1: true};
+
+await tte.startServer('/tmp/tika-server-1.25.jar', options);
+// The next command will be executed:
+// /bin/jre/java --add-modules=java.xml.bind,java.activation -Duser.home=/tmp -jar /tmp/tika-server-1.25.jar
 ```
 
 ## API
