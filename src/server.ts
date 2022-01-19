@@ -54,7 +54,6 @@ function getOptionsBasedOnJavaVersion(options: TextExtractionConfig): string {
 }
 
 function checkTikaVersion(artifactPath: string, options?: TextExtractionConfig): string {
-  console.log('version', options.firstVersionOfTika);
   if (options?.firstVersionOfTika) {
     return `${getExecutableJavaPath(options)} ${getOptionsBasedOnJavaVersion(
       options
