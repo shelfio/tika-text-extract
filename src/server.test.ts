@@ -15,7 +15,7 @@ it('should call exec to spawn a Tika Server', async () => {
   await startServer('/tmp/tika.jar');
 
   expect(childProcess.exec).toHaveBeenCalledWith(
-    'java --add-modules=java.xml.bind,java.activation -Duser.home=/tmp -jar /tmp/tika.jar'
+    'java -jar /tmp/tika.jar -noFork'
   );
 });
 
@@ -27,7 +27,7 @@ it('should call exec to spawn a Tika Server with custom java path', async () => 
   await startServer('/tmp/tika.jar', {executableJavaPath: '/bin/jre/java'});
 
   expect(childProcess.exec).toHaveBeenCalledWith(
-    '/bin/jre/java --add-modules=java.xml.bind,java.activation -Duser.home=/tmp -jar /tmp/tika.jar'
+    '/bin/jre/java -jar /tmp/tika.jar -noFork'
   );
 });
 
@@ -38,7 +38,7 @@ it('should call exec to spawn a Tika Server and align with Java 8 version', asyn
 
   await startServer('/tmp/tika.jar', {alignWithJava8: true});
 
-  expect(childProcess.exec).toHaveBeenCalledWith('java  -Duser.home=/tmp -jar /tmp/tika.jar');
+  expect(childProcess.exec).toHaveBeenCalledWith('java  -Duser.home=/tmp -jar /tmp/tika.jar -noFork');
 });
 
 it('should reject if some Java exception occurs', async () => {
