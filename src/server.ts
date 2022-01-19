@@ -14,17 +14,16 @@ export function startServer(artifactPath: string, options?: TextExtractionConfig
     throw new Error('Please provide path to Tika Server Artifact');
   }
 
-  const startCommand = `${getExecutableJavaPath(options)} ${getOptionsBasedOnJavaVersion(
-    options
-  )} -Duser.home=/tmp -jar ${artifactPath}`;
+  const startCommand = checkTikaVersion(artifactPath, options);
 
   return new Promise((resolve, reject) => {
     exec(startCommand).stderr.on('data', data => {
       debug(data);
 
-      const isTika1_14Started: boolean = data.indexOf('INFO: Started') > -1;
-      const isTika1_17Started: boolean = data.indexOf('Started Apache Tika server ') > -1;
-      const isStarted: boolean = isTika1_14Started || isTika1_17Started;
+      const isTika1_14Started = data.indexOf('INFO: Started') > -1;
+      const isTika1_17Started = data.indexOf('Started Apache Tika server ') > -1;
+
+      const isStarted = isTika1_14Started || isTika1_17Started;
       const isError: boolean = data.match(/java.*Exception|error/i);
 
       if (isStarted) {
@@ -52,4 +51,14 @@ function getOptionsBasedOnJavaVersion(options: TextExtractionConfig): string {
   }
 
   return '--add-modules=java.xml.bind,java.activation';
+}
+
+function checkTikaVersion(artifactPath: string, options?: TextExtractionConfig): string {
+  if (options?.useTikaV1) {
+    return `${getExecutableJavaPath(options)} ${getOptionsBasedOnJavaVersion(
+      options
+    )} -Duser.home=/tmp -jar ${artifactPath}`;
+  }
+
+  return `${getExecutableJavaPath(options)} -jar ${artifactPath} -noFork`;
 }
