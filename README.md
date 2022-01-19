@@ -99,3 +99,22 @@ $ git push origin master --tags
 ## License
 
 MIT © [Shelf](https://shelf.io)
+
+## How to run tika-text-extract
+
+Download Java, you can accomplish it with these commands: 
+```
+mkdir java 
+
+docker run --rm -v "$PWD"/java:/lambda/opt lambci/yumda:2 yum install -y java-1.8.0-openjdk-headless.x86_64
+```
+Move `java` folder inside `tika-text-extract`.
+Download `tika-server` which you want to use. You can find it in an [archive](https://archive.apache.org/dist/tika/)
+After that you can run this command:
+```
+docker run --rm \
+-v "$PWD":/var/task \
+-v "$PWD/java":/opt/java \
+-v "$PWD/tika":/../layer/tika/ \
+lambci/lambda:nodejs12.x basic-usage.handler
+```
