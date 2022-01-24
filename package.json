@@ -26,7 +26,7 @@
   "dependencies": {
     "debug": "^3.1.0",
     "get-stream": "^3.0.0",
-    "got": "11.8.2",
+    "got": "11.8.3",
     "into-stream": "^3.1.0",
     "is-stream": "^1.1.0"
   },
@@ -38,10 +38,10 @@
     "@shelf/prettier-config": "1.0.0",
     "@shelf/tsconfig": "0.0.6",
     "@types/jest": "27.4.0",
-    "eslint": "7.27.0",
+    "eslint": "7.32.0",
     "jest": "27.4.7",
     "memorystream": "0.3.1",
-    "prettier": "2.3.0",
+    "prettier": "2.5.1",
     "typescript": "4.5.5"
   },
   "engines": {
