@@ -38,7 +38,7 @@
     "@shelf/prettier-config": "1.0.0",
     "@shelf/tsconfig": "0.0.6",
     "@types/jest": "27.4.0",
-    "eslint": "8.8.0",
+    "eslint": "8.10.0",
     "jest": "27.4.7",
     "memorystream": "0.3.1",
     "prettier": "2.5.1",
