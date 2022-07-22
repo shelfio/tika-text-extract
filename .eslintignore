@@ -1,2 +1,5 @@
 coverage/
 lib/
+examples/
+tsconfig.json
+renovate.json

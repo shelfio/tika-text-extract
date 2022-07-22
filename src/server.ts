@@ -1,7 +1,9 @@
+// es
+import debugUtil from 'debug';
 import {exec} from 'child_process';
-import {TextExtractionConfig} from './server.types';
+import type {TextExtractionConfig} from './server.types';
 
-const debug = require('debug')('tika-text-extract');
+const debug = debugUtil('tika-text-extract');
 
 /**
  * Starts a Tika Server on a default localhost:9998
@@ -20,10 +22,12 @@ export function startServer(artifactPath: string, options?: TextExtractionConfig
     exec(startCommand).stderr.on('data', data => {
       debug(data);
 
+      /* eslint-disable camelcase */
       const isTika1_14Started = data.indexOf('INFO: Started') > -1;
       const isTika1_17Started = data.indexOf('Started Apache Tika server ') > -1;
 
       const isStarted = isTika1_14Started || isTika1_17Started;
+      /* eslint-enable camelcase */
       const isError: boolean = data.match(/java.*Exception|error/i);
 
       if (isStarted) {
