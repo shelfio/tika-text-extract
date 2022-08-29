@@ -21,7 +21,8 @@
   },
   "prettier": "@shelf/prettier-config",
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "rootDir": "src"
   },
   "dependencies": {
     "debug": "^4.0.0",
