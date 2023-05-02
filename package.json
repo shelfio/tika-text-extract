@@ -32,7 +32,7 @@
     "is-stream": "^1.1.0"
   },
   "devDependencies": {
-    "@babel/cli": "7.21.0",
+    "@babel/cli": "7.21.5",
     "@babel/core": "7.21.4",
     "@shelf/babel-config": "1.2.0",
     "@shelf/eslint-config": "2.29.0",
