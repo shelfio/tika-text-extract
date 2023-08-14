@@ -1,6 +1,6 @@
 // es
-import debugUtil from 'debug';
 import {exec} from 'child_process';
+import debugUtil from 'debug';
 import type {TextExtractionConfig} from './server.types';
 
 const debug = debugUtil('tika-text-extract');
